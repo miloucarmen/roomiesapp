@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="lib-s5-ve1" detailTextLabel="V45-gH-hwi" style="IBUITableViewCellStyleValue1" id="pF3-aJ-46D">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddInventoryCellIdentifier" textLabel="lib-s5-ve1" style="IBUITableViewCellStyleDefault" id="pF3-aJ-46D">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pF3-aJ-46D" id="NUt-Wo-khH">
@@ -35,14 +36,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lib-s5-ve1">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V45-gH-hwi">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -60,16 +54,25 @@
                             <outlet property="delegate" destination="MTr-Km-P0t" id="CpD-At-YWh"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Inventory" id="l0C-8K-Uas">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Lfc-3C-mYO"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zDl-eb-ODH">
-                            <connections>
-                                <segue destination="fzf-Ig-hI6" kind="presentation" id="fZS-XQ-x2P"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="zDl-eb-ODH">
+                                <connections>
+                                    <segue destination="fzf-Ig-hI6" kind="presentation" id="fZS-XQ-x2P"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="&lt;" id="Lfc-3C-mYO">
+                                <connections>
+                                    <segue destination="A6e-cQ-d3C" kind="unwind" unwindAction="unwind:" id="web-83-gGz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9e-hM-U7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="A6e-cQ-d3C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1647" y="-702"/>
         </scene>
@@ -181,11 +184,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Stock Up" id="2uc-lv-CrI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Age-IZ-17d"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ks8-0a-P62"/>
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="Age-IZ-17d">
+                            <connections>
+                                <segue destination="68A-z6-fpx" kind="unwind" unwindAction="exitUnwind:" id="cGp-Qp-Dwz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ks8-0a-P62">
+                            <connections>
+                                <segue destination="68A-z6-fpx" kind="unwind" unwindAction="saveUnwind:" id="gE8-rp-zpZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMw-6J-ZEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="68A-z6-fpx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3380" y="-702.09895052473769"/>
         </scene>
@@ -383,7 +395,7 @@
             </objects>
             <point key="canvasLocation" x="1646" y="34"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Shopping List-->
         <scene sceneID="6it-t7-KjP">
             <objects>
                 <tableViewController id="Ffd-aq-yIs" sceneMemberID="viewController">
@@ -406,9 +418,16 @@
                             <outlet property="delegate" destination="Ffd-aq-yIs" id="pgt-Wf-PaH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="wll-i0-TiN"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="wll-i0-TiN">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="qKu-Sd-hZc">
+                            <connections>
+                                <segue destination="JHc-4J-oaz" kind="unwind" unwindAction="unwind:" id="ET4-HB-6II"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igH-me-nxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JHc-4J-oaz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1689" y="-1515"/>
         </scene>
@@ -570,31 +589,38 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
-        <!--View Controller-->
+        <!--Calendar-->
         <scene sceneID="VKu-kW-NIq">
             <objects>
-                <viewController id="PXU-kG-FC2" sceneMemberID="viewController">
+                <viewController title="Calendar" id="PXU-kG-FC2" customClass="Calendar" customModule="roomiesapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ENr-TP-kt6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8a-9M-LQF">
-                                <rect key="frame" x="313" y="105" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-jo-ofQ">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUQ-Ws-96Z">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.85523789819999996" green="0.9297569805" blue="0.93856180639999998" alpha="0.81346318490000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Calendar" id="eDZ-PE-Qga">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LpD-ix-GpB">
+                                            <connections>
+                                                <segue destination="GqX-wm-KxB" kind="unwind" unwindAction="unwind:" id="oup-FI-c9S"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JFx-3v-pzM">
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-jo-ofQ">
                                 <rect key="frame" x="16" y="105" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Previous:" destination="PXU-kG-FC2" eventType="touchUpInside" id="V0i-JZ-IrJ"/>
+                                    <segue destination="GqX-wm-KxB" kind="unwind" unwindAction="unwind:" id="a3v-K0-Tij"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFc-fM-LSw">
-                                <rect key="frame" x="166" y="114" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="24G-7w-RDV">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -606,7 +632,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="irO-Y6-fdq">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="irO-Y6-fdq" customClass="CollectionViewCell" customModule="roomiesapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -624,13 +650,42 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="PXU-kG-FC2" id="ndB-da-5rf"/>
+                                </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFc-fM-LSw">
+                                <rect key="frame" x="166" y="110" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSu-Wr-QEP">
+                                <rect key="frame" x="313" y="105" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Next:" destination="PXU-kG-FC2" eventType="touchUpInside" id="EOm-Ji-54x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uo8-jo-ofQ" firstAttribute="leading" secondItem="9ab-uL-J5E" secondAttribute="leading" constant="16" id="1VT-1h-N1b"/>
+                            <constraint firstItem="oFc-fM-LSw" firstAttribute="top" secondItem="MUQ-Ws-96Z" secondAttribute="bottom" constant="46" id="3ba-Gz-aiA"/>
+                            <constraint firstItem="RSu-Wr-QEP" firstAttribute="top" secondItem="MUQ-Ws-96Z" secondAttribute="bottom" constant="41" id="apz-dr-4dq"/>
+                            <constraint firstItem="9ab-uL-J5E" firstAttribute="trailing" secondItem="RSu-Wr-QEP" secondAttribute="trailing" constant="16" id="aua-sa-L2v"/>
+                            <constraint firstItem="uo8-jo-ofQ" firstAttribute="top" secondItem="MUQ-Ws-96Z" secondAttribute="bottom" constant="41" id="ngX-bx-2jd"/>
+                            <constraint firstItem="oFc-fM-LSw" firstAttribute="centerX" secondItem="ENr-TP-kt6" secondAttribute="centerX" id="zJk-uA-3t5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9ab-uL-J5E"/>
                     </view>
+                    <connections>
+                        <outlet property="Calendar" destination="24G-7w-RDV" id="a7R-yM-Zpp"/>
+                        <outlet property="monthLabel" destination="oFc-fM-LSw" id="a3M-Rx-qIN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ND-Em-1Yp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GqX-wm-KxB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="33" y="812"/>
         </scene>

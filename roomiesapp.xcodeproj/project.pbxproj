@@ -21,6 +21,10 @@
 		E813729820C94C290091F263 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813729720C94C290091F263 /* PageViewController.swift */; };
 		E813729A20C9DEC80091F263 /* AddToInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813729920C9DEC80091F263 /* AddToInventory.swift */; };
 		E813729C20C9DFF40091F263 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813729B20C9DFF40091F263 /* Inventory.swift */; };
+		E813729E20CA750A0091F263 /* AddInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813729D20CA750A0091F263 /* AddInventory.swift */; };
+		E81372A020CA81D70091F263 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813729F20CA81D70091F263 /* Calendar.swift */; };
+		E81372A220CA8A900091F263 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81372A120CA8A900091F263 /* CollectionViewCell.swift */; };
+		E81372A420CA8D960091F263 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81372A320CA8D960091F263 /* CalendarVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		E813729720C94C290091F263 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		E813729920C9DEC80091F263 /* AddToInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToInventory.swift; sourceTree = "<group>"; };
 		E813729B20C9DFF40091F263 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		E813729D20CA750A0091F263 /* AddInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventory.swift; sourceTree = "<group>"; };
+		E813729F20CA81D70091F263 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		E81372A120CA8A900091F263 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E81372A320CA8D960091F263 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		EE003235A18B07A92172B25D /* Pods-roomiesappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-roomiesappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-roomiesappUITests/Pods-roomiesappUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,10 +155,14 @@
 			children = (
 				E813726720C7EA9A0091F263 /* AppDelegate.swift */,
 				E813726920C7EA9A0091F263 /* ViewController.swift */,
-				E813726B20C7EA9A0091F263 /* Main.storyboard */,
+				E813729D20CA750A0091F263 /* AddInventory.swift */,
 				E813729B20C9DFF40091F263 /* Inventory.swift */,
+				E813729F20CA81D70091F263 /* Calendar.swift */,
+				E81372A120CA8A900091F263 /* CollectionViewCell.swift */,
 				E813729920C9DEC80091F263 /* AddToInventory.swift */,
 				E813729720C94C290091F263 /* PageViewController.swift */,
+				E813726B20C7EA9A0091F263 /* Main.storyboard */,
+				E81372A320CA8D960091F263 /* CalendarVars.swift */,
 				E813726E20C7EAA10091F263 /* Assets.xcassets */,
 				E813727020C7EAA10091F263 /* LaunchScreen.storyboard */,
 				E813729520C7ED210091F263 /* GoogleService-Info.plist */,
@@ -394,9 +406,13 @@
 			files = (
 				E813726A20C7EA9A0091F263 /* ViewController.swift in Sources */,
 				E813729A20C9DEC80091F263 /* AddToInventory.swift in Sources */,
+				E81372A220CA8A900091F263 /* CollectionViewCell.swift in Sources */,
+				E813729E20CA750A0091F263 /* AddInventory.swift in Sources */,
 				E813729C20C9DFF40091F263 /* Inventory.swift in Sources */,
 				E813726820C7EA9A0091F263 /* AppDelegate.swift in Sources */,
+				E81372A420CA8D960091F263 /* CalendarVars.swift in Sources */,
 				E813729820C94C290091F263 /* PageViewController.swift in Sources */,
+				E81372A020CA81D70091F263 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,11 +14,6 @@ class AddToInventory: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(fromGesture:)))
-        tableView.addGestureRecognizer(gesture)
     }
     
-    @objc func dismiss(fromGesture gesture: UISwipeGestureRecognizer) {
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-    }
 }
